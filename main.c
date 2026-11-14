@@ -29,12 +29,21 @@ int main () {
                 }
                 break;
             }
-            case 3:
-                printf("voce escolheu sacar.\n");
+            case 3: {
+                double valor;
+                printf("valor do saque: R$ ");
+                scanf("%lf", &valor);
+
+                if (valor <= 0) {
+                    printf("valor invalido. digite um valor maior que zero.\n");
+                } else if (valor > saldo) {
+                    printf("saldo insuficiente.\n");
+                } else {
+                    saldo -= valor;
+                    printf("saque realizado! novo saldo: R$ %.2f\n", saldo);
+                }
                 break;
-            case 4:
-                printf("ate logo!\n");
-                break;
+            }
             default:
                 printf("opcao invalida.\n");
         }
