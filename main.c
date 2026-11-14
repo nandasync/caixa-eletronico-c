@@ -1,40 +1,40 @@
 #include <stdio.h>
 
 void mostrar_menu() {
-    printf("\n===== CAIXA ELETRONICO =====\n");
-    printf("1) Ver saldo\n");
-    printf("2) Depositar\n");
-    printf("3) Sacar\n");
-    printf("4) Sair\n");
-    printf("Escolha uma opcao: ");
+    printf("\n====== CAIXA ELETRONICO ======\n");
+    printf("1) ver saldo\n");
+    printf("2) depositar\n");
+    printf("3) sacar\n");
+    printf("4) sair\n");
+    printf("escolha uma opcao: ");
 }
 
 double depositar(double saldo) {
     double valor;
-    printf("Valor do deposito: R$ ");
+    printf("valor do deposito: R$ ");
     scanf("%lf", &valor);
 
     if (valor <= 0) {
-        printf("Valor invalido. Digite um valor maior que zero.\n");
+        printf("valor invalido. digite um valor maior que zero.\n");
     } else {
         saldo += valor;
-        printf("Deposito realizado! Novo saldo: R$ %.2f\n", saldo);
+        printf("deposito realizado! novo saldo: R$ %.2f\n", saldo);
     }
     return saldo;
 }
 
 double sacar(double saldo) {
     double valor;
-    printf("Valor do saque: R$ ");
+    printf("valor do saque: R$ ");
     scanf("%lf", &valor);
 
     if (valor <= 0) {
-        printf("Valor invalido. Digite um valor maior que zero.\n");
+        printf("valor invalido. digite um valor maior que zero.\n");
     } else if (valor > saldo) {
-        printf("Saldo insuficiente.\n");
+        printf("saldo insuficiente.\n");
     } else {
         saldo -= valor;
-        printf("Saque realizado! Novo saldo: R$ %.2f\n", saldo);
+        printf("saque realizado! novo saldo: R$ %.2f\n", saldo);
     }
     return saldo;
 }
@@ -49,7 +49,7 @@ int main() {
 
         switch (opcao) {
             case 1:
-                printf("Saldo atual: R$ %.2f\n", saldo);
+                printf("saldo atual: R$ %.2f\n", saldo);
                 break;
             case 2:
                 saldo = depositar(saldo);
@@ -58,10 +58,10 @@ int main() {
                 saldo = sacar(saldo);
                 break;
             case 4:
-                printf("Ate logo!\n");
+                printf("ate logo!\n");
                 break;
             default:
-                printf("Opcao invalida.\n");
+                printf("opcao invalida.\n");
         }
     } while (opcao != 4);
 
